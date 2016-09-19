@@ -14,8 +14,8 @@ var Liveagent = function () {
         self.port = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080;
 
         if (self.ipaddress === undefined) {
-            console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
-            self.ipaddress = '127.0.0.1';
+            console.warn('No OPENSHIFT_NODEJS_IP var, using 0.0.0.0');
+            self.ipaddress = '0.0.0.0';
         }
     };
 
@@ -60,7 +60,13 @@ var Liveagent = function () {
 
         /*jslint unparam: true*/
         self.app.get('/', function (req, res) {
-            res.render('index', process.env);
+            res.render('index', {
+                CHAT_KEY_BUTTON: process.env.CHAT_KEY_BUTTON,
+                CHAT_KEY_ONE: process.env.CHAT_KEY_ONE,
+                CHAT_KEY_TWO: process.env.CHAT_KEY_TWO,
+                CHAT_URL: process.env.CHAT_URL,
+                DEPLOYMENT_URL: process.env.DEPLOYMENT_URL
+            });
         });
         /*jslint unparam: false*/
     };
