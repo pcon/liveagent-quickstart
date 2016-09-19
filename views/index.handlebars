@@ -1,0 +1,25 @@
+<script type='text/javascript' src='{{DEPLOYMENT_URL}}'></script>
+<script type='text/javascript'>
+	liveagent.init('{{CHAT_URL}}', '{{CHAT_KEY_ONE}}', '{{CHAT_KEY_TWO}}');
+</script>
+
+<div class="jumbotron">
+	<h1>Live Agent</h1>
+	<h2>Demo</h2>
+	<p>Below will be a button that will be disabled if nobody is logged into the chat console.  If it's enabled the button will be clickable</p>
+</div>
+<div>
+	<a id="liveagent_button_online_{{CHAT_KEY_BUTTON}}" href="javascript://Chat" style="display: none;" class="btn btn-primary" onclick="liveagent.startChat('{{CHAT_KEY_BUTTON}}')">Online</a>
+	<a id="liveagent_button_offline_{{CHAT_KEY_BUTTON}}" style="display: none;" class="btn btn-default" disabled="disabled">Offline</div>
+</div>
+
+<script type="text/javascript">
+	if (!window._laq) {
+		window._laq = [];
+	}
+
+	window._laq.push(function () {
+		liveagent.showWhenOnline('{{CHAT_KEY_BUTTON}}', document.getElementById('liveagent_button_online_{{CHAT_KEY_BUTTON}}'));
+		liveagent.showWhenOffline('{{CHAT_KEY_BUTTON}}', document.getElementById('liveagent_button_offline_{{CHAT_KEY_BUTTON}}'));
+	});
+</script>

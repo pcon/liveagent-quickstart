@@ -1,0 +1,31 @@
+{
+    "name": "Liveagent quickstart",
+    "description": "A quickstart app to spin up a site with a Liveagent chat button",
+    "website": "https://github.com/pcon/liveagent-quickstart",
+    "repository": "https://github.com/pcon/liveagent-quickstart",
+    "logo": "https://raw.githubusercontent.com/pcon/liveagent-quickstart/master/assets/logo.svg",
+    "keywords": ["node", "express", "liveagent", "quickstart"],
+    "image": "heroku/nodejs",
+    "env": {
+        "DEPLOYMENT_URL": {
+            "description": "The URL to the deployment.js file",
+            "required": true
+        },
+        "CHAT_URL": {
+            "description": "The URL to the chat service",
+            "required": true
+        },
+        "CHAT_KEY_ONE": {
+            "description": "The first key for the chat init call",
+            "required": true
+        },
+        "CHAT_KEY_TWO": {
+            "description": "The second key for the chat init call",
+            "required": true
+        },
+        "CHAT_KEY_BUTTON": {
+            "description": "The key for the chat button",
+            "required": true
+        }
+    }
+}
